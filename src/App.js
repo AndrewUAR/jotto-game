@@ -8,7 +8,17 @@ import Input from './Input';
 
 import { getSecretWord } from './actions/index';
 
-class App extends Component {
+export class UnconnectedApp extends Component {
+
+  /**
+   * @method componentDidMount
+   * @returns {undefined}
+   */
+  componentDidMount() {
+    // get the secret word
+    this.props.getSecretWord();
+  }
+
   render() {
     return (
       <div className="container">
@@ -30,4 +40,4 @@ const actions = {
   getSecretWord
 }
 
-export default connect(mapStateToProps, actions)(App);
+export default connect(mapStateToProps, actions)(UnconnectedApp);
